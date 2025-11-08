@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo: Par ou Ímpar</title>
+</head>
+<body>
+  <h2>Jogo: Par ou Ímpar</h2>
+
+  <script>
+    function parOuImpar() {
+      // Escolha do usuário (1 = par, 2 = ímpar)
+      const escolhaNumero = prompt("Escolha:\n1 - PAR\n2 - ÍMPAR");
+      
+      let escolhaUsuario;
+      if (escolhaNumero === "1") {
+        escolhaUsuario = "par";
+      } else if (escolhaNumero === "2") {
+        escolhaUsuario = "ímpar";
+      } else {
+        alert("Escolha inválida! Digite 1 para PAR ou 2 para ÍMPAR.");
+        return;
+      }
+
+      const numUsuario = parseInt(prompt("Digite um número de 0 a 10:"));
+      if (isNaN(numUsuario) || numUsuario < 0 || numUsuario > 10) {
+        alert("Número inválido! Digite um número entre 0 e 10.");
+        return;
+      }
+
+      // Computador escolhe automaticamente o oposto
+      const escolhaComputador = escolhaUsuario === "par" ? "ímpar" : "par";
+      const numComputador = Math.floor(Math.random() * 11);
+
+      // Calcula resultado
+      const soma = numUsuario + numComputador;
+      const resultado = soma % 2 === 0 ? "par" : "ímpar";
+
+      // Mostra resultados na tela
+      document.write(`<p>Você escolheu <b>${escolhaUsuario}</b> e jogou ${numUsuario}.</p>`);
+      document.write(`<p>Computador ficou com <b>${escolhaComputador}</b> e jogou ${numComputador}.</p>`);
+      document.write(`<p>Soma: ${numUsuario} + ${numComputador} = ${soma} (<b>${resultado}</b>)</p>`);
+
+      // Determina o vencedor
+      if (resultado === escolhaUsuario) {
+        document.write("<h3> Você venceu!</h3>");
+      } else {
+        document.write("<h3> Computador venceu!</h3>");
+      }
+    }
+
+    parOuImpar();
+  </script>
+</body>
+</html>
