@@ -9,7 +9,7 @@
 
   <script>
     function parOuImpar() {
-      // Escolha do usuário (1 = par, 2 = ímpar)
+     
       const escolhaNumero = prompt("Escolha:\n1 - PAR\n2 - ÍMPAR");
       
       let escolhaUsuario;
@@ -28,20 +28,20 @@
         return;
       }
 
-      // Computador escolhe automaticamente o oposto
+      
       const escolhaComputador = escolhaUsuario === "par" ? "ímpar" : "par";
       const numComputador = Math.floor(Math.random() * 11);
 
-      // Calcula resultado
+    
       const soma = numUsuario + numComputador;
       const resultado = soma % 2 === 0 ? "par" : "ímpar";
 
-      // Mostra resultados na tela
+   
       document.write(`<p>Você escolheu <b>${escolhaUsuario}</b> e jogou ${numUsuario}.</p>`);
       document.write(`<p>Computador ficou com <b>${escolhaComputador}</b> e jogou ${numComputador}.</p>`);
       document.write(`<p>Soma: ${numUsuario} + ${numComputador} = ${soma} (<b>${resultado}</b>)</p>`);
 
-      // Determina o vencedor
+  
       if (resultado === escolhaUsuario) {
         document.write("<h3> Você venceu!</h3>");
       } else {
